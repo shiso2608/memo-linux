@@ -18,9 +18,9 @@ Linux のセットアップや運用に関する備忘録リポジトリです�
 1. [インストールメディアの作成](docs/archlinux/installation_media.md)
 2. [archinstall でインストール](docs/archlinux/archinstall.md)
 3. [システム環境構築](docs/archlinux/system_setup.md)
-4. [AUR ヘルパー (yay)](Linux/docs/archlinux/aur_helper.md)
+4. [AUR ヘルパー (yay)](docs/archlinux/aur_helper.md)
 5. [使用環境構築](docs/archlinux/use_setup.md)
-6. [日本語環境構築](Linux/docs/archlinux/env_japanese.md)
+6. [日本語環境構築](docs/archlinux/env_japanese.md)
 
 ### メンテナンス
 
