@@ -43,5 +43,6 @@ Linux のセットアップや運用に関する備忘録リポジトリです�
 - [USB メモリの操作](docs/tools/usb_memory.md)
 - [アンチウィルス (ClamAV)](docs/tools/clamav.md)
 - [スナップショット (Snapper)](docs/tools/snapshot.md)
+- [バックアップ (rclone)](docs/tools/backup.md)
 - [ファイル暗号化 (age)](docs/tools/encryption.md)
 - [マインクラフト (Prism Launcher)](docs/tools/prismlauncher.md)
