@@ -1,5 +1,12 @@
 # ファイル暗号化 (age)
 
+## 目次
+
+- [パッケージインストール](#パッケージインストール)
+- [鍵の生成](#鍵の生成)
+- [ファイルの暗号化](#ファイルの暗号化)
+- [ファイルの復号と閲覧](#ファイルの復号と閲覧)
+
 ## パッケージインストール
 
 ```bash
@@ -16,7 +23,7 @@ sudo pacman -S --needed age
 mkdir -p ~/.config/age
 ```
 
-2. 秘密鍵の生成
+2. 鍵の生成
 
 ```bash
 age-keygen -o ~/.config/age/key.txt
@@ -24,7 +31,7 @@ age-keygen -o ~/.config/age/key.txt
 
 3. 公開鍵の抽出
 
-生成した秘密鍵から公開鍵を抽出する。
+生成した鍵から公開鍵を抽出する。
 
 ```bash
 age-keygen -y ~/.config/age/key.txt > ~/.config/age/public_key.txt
@@ -33,7 +40,7 @@ age-keygen -y ~/.config/age/key.txt > ~/.config/age/public_key.txt
 ## ファイルの暗号化
 
 ```bash
-age -R ~/.config/age/public_key.txt -o confidential.txt.age confidential.txt
+age -R ~/.config/age/public_key.txt -o confidential.age confidential.txt
 ```
 
 > [!TIP]
@@ -46,11 +53,11 @@ age -R ~/.config/age/public_key.txt -o confidential.txt.age confidential.txt
 - 内容の閲覧
 
 ```bash
-age -d -i ~/.config/age/key.txt confidential.txt.age | less
+age -d -i ~/.config/age/key.txt confidential.age | less
 ```
 
-- ファイルの復元
+- ファイルの復号
 
 ```bash
-age -d -i ~/.config/age/key.txt -o confidential.txt confidential.txt.age
+age -d -i ~/.config/age/key.txt -o confidential.txt confidential.age
 ```
