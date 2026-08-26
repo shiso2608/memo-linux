@@ -40,6 +40,7 @@ Linux のセットアップや運用に関する備忘録リポジトリです�
 - [dotfiles 管理](docs/tools/dotfiles.md)
 - [GPU ゼロ RPM](docs/tools/gpu_zero_rpm.md)
 - [Kdenlive](docs/tools/kdenlive.md)
+- [Keyring](docs/tools/keyring.md)
 - [OBS Studio](docs/tools/obs_studio.md)
 - [USB メモリの操作](docs/tools/usb_memory.md)
 - [SSH 接続](docs/tools/ssh.md)
@@ -48,3 +49,4 @@ Linux のセットアップや運用に関する備忘録リポジトリです�
 - [バックアップ (rclone)](docs/tools/backup.md)
 - [ファイル暗号化 (age)](docs/tools/encryption.md)
 - [マインクラフト (Prism Launcher)](docs/tools/prismlauncher.md)
+- [メール (Thunderbird)](docs/tools/mail.md)
