@@ -9,7 +9,7 @@
 ## パッケージインストール
 
 ```bash
-pacman -Ss --needed lact
+sudo pacman -Ss --needed lact
 ```
 
 ## サービスの有効化と起動
