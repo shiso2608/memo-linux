@@ -1,9 +1,10 @@
-# Keyring
+# キーリング
 
 ## 目次
 
 - [パッケージインストール](#パッケージインストール)
 - [設定](#設定)
+- [PAM 連携](#pam-連携)
 
 ## パッケージインストール
 
@@ -23,14 +24,32 @@ sudo pacman -S --needed gnome-keyring libsecret
 
 ```diff
 hl.on("hyprland.start", function () 
-+  hl.exec_cmd("uwsm app -- gnome-keyring-daemon --start --components=secrets")
++  hl.exec_cmd("dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP GNOME_KEYRING_CONTROL SSH_AUTH_SOCK")
 end)
 ```
 
-3. 再起動
-4. Choose password for new keyring: **(任意のパスワード)**  
-  パスワードを入力すると新しいキーリングが作成される。
+## PAMの連携
+
+1. 編集: /etc/pam.d/greetd
+
+```diff
+#%PAM-1.0
+
+auth       required     pam_securetty.so
+auth       requisite    pam_nologin.so
+auth       include      system-local-login
++ auth       optional     pam_gnome_keyring.so
+account    include      system-local-login
+session    include      system-local-login
++ session    optional     pam_gnome_keyring.so auto_start
+```
+
+2. 再起動
+3. デフォルトキーリングを確認
+
+```bash
+busctl --user call org.freedesktop.secrets /org/freedesktop/secrets/aliases/default org.freedesktop.DBus.Properties Get ss org.freedesktop.Secret.Collection Label
+```
 
 > [!TIP]
-> PC のログインパスワードと同じパスワードを設定すると、ログイン時に自動的に解錠される。  
-> ログインの度にキーリングを解錠する手間が省ける。
+> **v s "Login"** と表示されれば良い。
