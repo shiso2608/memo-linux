@@ -32,7 +32,7 @@ Linux のセットアップや運用に関する備忘録リポジトリです�
 
 ## 開発環境
 
-- [Rust](docs/dev/env_rust.md)
+- [Rust](docs/dev/rust.md)
 
 ## ツール
 
