@@ -4,6 +4,7 @@
 
 - [パッケージインストール](#パッケージインストール)
 - [設定](#設定)
+- [SSH 鍵を管理](#ssh-鍵を管理)
 - [PAM 連携](#pam-連携)
 
 ## パッケージインストール
@@ -20,12 +21,18 @@ sudo pacman -S --needed gnome-keyring libsecret
 + export SECRET_SERVICE_BUS_NAME=org.freedesktop.secrets
 ```
 
-2. 編集: ~/.config/hypr/hyprland.lua
+## SSH 鍵を管理
 
-```diff
-hl.on("hyprland.start", function () 
-+  hl.exec_cmd("dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP GNOME_KEYRING_CONTROL SSH_AUTH_SOCK")
-end)
+1. サービスの起動と有効化
+
+```bash
+systemctl --user enable --now gcr-ssh-agent.socket
+```
+
+2. ソケットファイルの確認
+
+```bash
+ls -l $XDG_RUNTIME_DIR/gcr/ssh
 ```
 
 ## PAMの連携

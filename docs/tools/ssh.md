@@ -5,6 +5,7 @@
 - [準備](#準備)
 - [鍵の生成](#鍵の生成)
 - [公開鍵を登録 (GitHub)](#公開鍵を登録-github)
+- [SSH 鍵をキーリング管理](#ssh-鍵をキーリング管理)
 
 ## 準備
 
@@ -49,14 +50,22 @@ ssh -T git@github.com
 > [!TIP]
 > 「 **Hi (アカウント名)! You've successfully authenticated, but GitHub does not provide shell access.** 」 というメッセージが表示されていれば成功。
 
-## パスフレーズを Keyring 管理
+## SSH 鍵をキーリング管理
 
-Keyring が解錠されている状態で ssh 接続を行うと、パスフレーズの入力を省略できるようになる。
+キーリングが解錠されている状態で SSH 接続を行った際に、パスフレーズの入力を省略できるようにする。
 
-1. 編集: ~/.config/uwsm/env
+1.  SSH 鍵を追加
 
-```diff
-+ export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/gcr/ssh"
+```bash
+ssh-add ~/.ssh/id_ed25519
 ```
 
-2. 再起動
+2. パスフレーズを入力
+3. 確認
+
+```bash
+ssh-add -l
+```
+
+> [!TIP]
+> 追加した SSH 鍵が表示されれば良い。
