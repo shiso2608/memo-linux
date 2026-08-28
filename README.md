@@ -41,6 +41,7 @@ Linux のセットアップや運用に関する備忘録リポジトリです�
 - [GPU ゼロ RPM](docs/tools/gpu_zero_rpm.md)
 - [Kdenlive](docs/tools/kdenlive.md)
 - [OBS Studio](docs/tools/obs_studio.md)
+- [pacman](docs/tools/pacman.md)
 - [USB メモリの操作](docs/tools/usb_memory.md)
 - [SSH 接続](docs/tools/ssh.md)
 - [アンチウィルス (ClamAV)](docs/tools/clamav.md)
