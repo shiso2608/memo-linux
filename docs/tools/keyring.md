@@ -4,8 +4,8 @@
 
 - [パッケージインストール](#パッケージインストール)
 - [設定](#設定)
-- [SSH 鍵を管理](#ssh-鍵を管理)
-- [PAM 連携](#pam-連携)
+- [SSH 鍵の管理機能無効化](#ssh-鍵の管理機能無効化)
+- [PAMの連携](#pamの連携)
 
 ## パッケージインストール
 
@@ -15,29 +15,25 @@ sudo pacman -S --needed gnome-keyring libsecret
 
 ## 設定
 
-1. 編集: ~/.config/uwsm/env
+- 編集: `~/.config/uwsm/env`
 
 ```diff
 + export SECRET_SERVICE_BUS_NAME=org.freedesktop.secrets
 ```
 
-## SSH 鍵を管理
-
-1. サービスの起動と有効化
+## SSH 鍵の管理機能無効化
 
 ```bash
-systemctl --user enable --now gcr-ssh-agent.socket
+systemctl --user mask gcr-ssh-agent.socket gcr-ssh-agent.service
 ```
 
-2. ソケットファイルの確認
-
-```bash
-ls -l $XDG_RUNTIME_DIR/gcr/ssh
-```
+> [!TIP]
+> 将来的に使用したくなった場合は、下記のコマンドを実行する。  
+> `systemctl --user unmask gcr-ssh-agent.socket gcr-ssh-agent.service`
 
 ## PAMの連携
 
-1. 編集: /etc/pam.d/greetd
+1. 編集: `/etc/pam.d/greetd`
 
 ```diff
 #%PAM-1.0

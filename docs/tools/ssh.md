@@ -2,14 +2,9 @@
 
 ## 目次
 
-- [準備](#準備)
 - [鍵の生成](#鍵の生成)
 - [公開鍵を登録 (GitHub)](#公開鍵を登録-github)
-- [SSH 鍵をキーリング管理](#ssh-鍵をキーリング管理)
-
-## 準備
-
-[キーリング](docs/tools/keyring.md) の設定を先に行う。
+- [エージェントを設定](#エージェントを設定)
 
 ## 鍵の生成
 
@@ -23,7 +18,7 @@ ssh-keygen -t ed25519 -C "(任意のメールアドレス)"
 
 ## 公開鍵を登録 (GitHub)
 
-1. 確認: ~/.ssh/id_ed25519.pub
+1. 確認
 
 ```bash
 cat ~/.ssh/id_ed25519.pub
@@ -39,7 +34,7 @@ cat ~/.ssh/id_ed25519.pub
   - Key type:  
     Authentication Key
   - Key:  
-    **~/.ssh/id_ed25519.pub** の内容をコピー & ペースト
+    `~/.ssh/id_ed25519.pub` の内容をコピー & ペースト
 6. Add SSH Key
 7. 接続テスト
 
@@ -50,22 +45,67 @@ ssh -T git@github.com
 > [!TIP]
 > 「 **Hi (アカウント名)! You've successfully authenticated, but GitHub does not provide shell access.** 」 というメッセージが表示されていれば成功。
 
-## SSH 鍵をキーリング管理
+## エージェントを設定
 
-キーリングが解錠されている状態で SSH 接続を行った際に、パスフレーズの入力を省略できるようにする。
-
-1.  SSH 鍵を追加
+1. サービスの起動と有効化
 
 ```bash
-ssh-add ~/.ssh/id_ed25519
+systemctl --user enable --now ssh-agent
 ```
 
-2. パスフレーズを入力
-3. 確認
+2. 確認
+
+```bash
+systemctl --user status ssh-agent
+```
+
+> [!TIP]
+> **Active: active (running)** と表示されれば良い。
+
+3. 編集: `~/.config/uwsm/env`
+
+```diff
++ export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
+```
+
+4. ファイル作成
+
+```bash
+touch ~/.ssh/config
+```
+
+5. 編集: `~/.ssh/config`
+
+```diff
++ Host *
++   AddKeysToAgent yes
+```
+
+6. 再起動
+7. 確認
+
+```bash
+echo $SSH_AUTH_SOCK
+```
+
+> [!TIP]
+> **/run/user/\<UID>/ssh-agent.socket** と出力されれば良い。
+
+8. 接続テスト
+
+```bash
+ssh -T git@github.com
+```
+
+> [!TIP]
+> 初回はパスフレーズの入力を求められる。  
+> **Hi (アカウント名)!** と返ってくれば成功。
+
+9. 登録確認
 
 ```bash
 ssh-add -l
 ```
 
 > [!TIP]
-> 追加した SSH 鍵が表示されれば良い。
+> ハッシュ値が表示されれば良い。
