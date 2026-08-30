@@ -48,6 +48,7 @@ Linux のセットアップや運用に関する備忘録リポジトリです�
 - [キーリング](docs/tools/keyring.md)
 - [スナップショット (Snapper)](docs/tools/snapshot.md)
 - [テーマ](docs/tools/theme.md)
+- [デュアルブート](docs/tools/dual_boot.md)
 - [バックアップ (rclone)](docs/tools/backup.md)
 - [ファイル暗号化 (age)](docs/tools/encryption.md)
 - [マインクラフト (Prism Launcher)](docs/tools/prismlauncher.md)
