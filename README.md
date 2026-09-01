@@ -33,6 +33,7 @@ Linux のセットアップや運用に関する備忘録リポジトリです�
 ## fedora
 
 1. [インストールメディアの作成](docs/fedora/installation_media.md)
+2. [インストール手順](docs/fedora/install.md)
 
 ## 開発環境
 
