@@ -10,6 +10,9 @@
   - [サービスの有効化](#サービスの有効化)
   - [仮想ネットワークの有効化と起動](#仮想ネットワークの有効化と起動)
 - [仮想マシン作成](#仮想マシン作成)
+- [仮想マシンへ SSH 接続](#仮想マシンへ-ssh-接続)
+  - [仮想マシン側で設定](#仮想マシン側で設定)
+  - [ホストマシン側から接続](#ホストマシン側から接続)
 
 ## 環境構築
 
@@ -114,3 +117,53 @@ systemctl status libvirtd
 11. 仮想マシン用にディスクイメージを作成する: **32** GiB
 12. **次へ**
 13. インストールを開始する準備ができました: **完了**
+
+## 仮想マシンへ SSH 接続
+
+### 仮想マシン側で設定
+
+1. サービスの起動と有効化
+
+```bash
+sudo systemctl enable --now sshd
+```
+
+2. 確認
+
+```bash
+systemctl status sshd
+```
+
+> [!TIP]
+> **Active: active (running)** と表示されれば良い。
+
+3. ファイアウォールの確認
+
+```bash
+sudo firewall-cmd --add-service=ssh --permanent
+```
+
+```bash
+sudo firewall-cmd --reload
+```
+
+> [!TIP]
+> **success** と表示されれば良い。
+
+4. IP アドレスの確認
+
+```bash
+ip a
+```
+
+### ホストマシン側から接続
+
+```bash
+ssh (仮想マシンのユーザー名)@(仮想マシンの IP アドレス)
+```
+
+> [!TIP]
+> **Are you sure you want to continue connecting (yes/no/[fingerprint])?** と表示されたら **yes** と入力する。
+
+> [!NOTE]
+> 接続を切断する際は `exit` を実行する。
