@@ -54,3 +54,4 @@ Linux のセットアップや運用に関する備忘録リポジトリです�
 - [ファイル暗号化 (age)](docs/tools/encryption.md)
 - [マインクラフト (Prism Launcher)](docs/tools/prismlauncher.md)
 - [メール (Thunderbird)](docs/tools/mail.md)
+- [仮想マシン構築](docs/tools/virtual_machine.md)
