@@ -55,3 +55,11 @@ chsh -s $(command -v zsh)
 > **Shell changed.** と表示されれば良い。
 
 4. 再起動
+5. 確認
+
+```bash
+echo $SHELL
+```
+
+> [!TIP]
+> **/usr/bin/zsh** と表示されれば良い。
