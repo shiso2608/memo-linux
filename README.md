@@ -53,6 +53,7 @@ Linux のセットアップや運用に関する備忘録リポジトリです�
 - [USB メモリの操作](docs/tools/usb_memory.md)
 - [アンチウィルス (ClamAV)](docs/tools/clamav.md)
 - [キーリング](docs/tools/keyring.md)
+- [シェル変更](docs/tools/shell.md)
 - [スナップショット (Snapper)](docs/tools/snapshot.md)
 - [テーマ](docs/tools/theme.md)
 - [デュアルブート](docs/tools/dual_boot.md)
