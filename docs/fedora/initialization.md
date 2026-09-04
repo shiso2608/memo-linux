@@ -82,7 +82,9 @@ sudo dnf swap mesa-vulkan-drivers{,-freeworld}
 
 - 32 bit
 
-Steam を使用する場合は必要になる。
+> [!CAUTION]
+> Steam を使用する場合は必要になる。  
+> しかしライブラリのバージョン問題を考えると、 Steam は flatpak 版を使用したほうが良い。
 
 ```bash
 sudo dnf install mesa-va-drivers-freeworld.i686
