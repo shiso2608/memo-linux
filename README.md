@@ -55,6 +55,7 @@ Linux のセットアップや運用に関する備忘録リポジトリです�
 - [キーリング](docs/tools/keyring.md)
 - [シェル変更](docs/tools/shell.md)
 - [スナップショット (Snapper)](docs/tools/snapshot.md)
+- [ターミナルマルチプレクサ (tmux)](docs/tools/tmux.md)
 - [テーマ](docs/tools/theme.md)
 - [デュアルブート](docs/tools/dual_boot.md)
 - [バックアップ (rclone)](docs/tools/backup.md)
