@@ -46,6 +46,7 @@ Linux のセットアップや運用に関する備忘録リポジトリです�
 - [dotfiles 管理](docs/tools/dotfiles.md)
 - [GPU ゼロ RPM](docs/tools/gpu_zero_rpm.md)
 - [Kdenlive](docs/tools/kdenlive.md)
+- [neovim](docs/tools/neovim.md)
 - [OBS Studio](docs/tools/obs_studio.md)
 - [pacman](docs/tools/pacman.md)
 - [SSH 接続](docs/tools/ssh.md)
