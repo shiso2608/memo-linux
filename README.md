@@ -42,6 +42,7 @@ Linux のセットアップや運用に関する備忘録リポジトリです�
 
 ## ツール
 
+- [Android エミュレータ (waydroid)](docs/tools/waydroid.md)
 - [Bluetooth](docs/tools/bluetooth.md)
 - [dotfiles 管理](docs/tools/dotfiles.md)
 - [GPU ゼロ RPM](docs/tools/gpu_zero_rpm.md)
