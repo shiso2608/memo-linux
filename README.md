@@ -29,6 +29,7 @@ Linux のセットアップや運用に関する備忘録リポジトリです�
 ## NixOS
 
 1. [インストールメディアの作成](docs/nixos/installation_media.md)
+2. [インストール手順](docs/nixos/install.md)
 
 ## fedora
 
