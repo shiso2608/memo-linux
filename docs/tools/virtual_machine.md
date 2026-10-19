@@ -18,8 +18,20 @@
 
 ### パッケージインストール
 
+- Arch Linux
+
 ```bash
 sudo pacman -S --needed dnsmasq edk2-ovmf iptables-nft libvirt qemu-desktop virt-manager virt-viewer
+```
+
+- Fedora
+
+```bash
+sudo dnf group install virtualization
+```
+
+```bash
+sudo dnf install edk2-ovmf
 ```
 
 ### サポート確認
@@ -51,6 +63,9 @@ lsmod | grep kvm
 + firewall_backend = "iptables"
 ```
 
+> [!IMPORTANT]
+> Fedora では不要。
+
 ### ユーザー権限の設定
 
 ```bash
@@ -61,8 +76,16 @@ sudo usermod -aG libvirt $USER
 
 1. 有効化
 
+- Arch Linux
+
 ```bash
 sudo systemctl enable --now libvirtd.socket
+```
+
+- Fedora
+
+```bash
+sudo systemctl enable --now libvirtd
 ```
 
 2. 再起動
@@ -102,7 +125,7 @@ systemctl status libvirtd
 > 起動していなければ `sudo systemctl start libvirtd` で起動する。
 
 2. **virt-manager** を起動
-3. 画面左上の 🖥️ **(新しい仮想マシンの作成)** をクリック
+3. 画面左上の **(新しい仮想マシンの作成)** をクリック
 4. オペレーティングシステムのインストール方法の選択: **ローカルのインストールメディア (ISO イメージまたは CD-ROM ドライブ)**
 5. **次へ**
 6. ISO または CDROM インストールメディアの選択: **参照** -> **(ISO ファイル)**
