@@ -30,6 +30,7 @@ Linux のセットアップや運用に関する備忘録リポジトリです�
 
 1. [インストールメディアの作成](docs/nixos/installation_media.md)
 2. [インストール手順](docs/nixos/install.md)
+3. [環境を再構築](docs/nixos/rebuild_the_environment.md)
 
 ## fedora
 
