@@ -4,6 +4,7 @@
 
 - [設定リポジトリのコピー](#設定リポジトリのコピー)
 - [ハードウェア設定の入れ替え](#ハードウェア設定の入れ替え)
+- [ブートローダーの設定削除](#ブートローダーの設定削除)
 - [ビルド](#ビルド)
 
 ## 設定リポジトリのコピー
@@ -40,6 +41,20 @@ mv ~/nixos-config/hardware/hardware-configuration.nix ~/nixos-config/hardware/ha
 cp /etc/nixos/hardware-configuration.nix ~/nixos-config/hardware/.
 ```
 
+## ブートローダーの設定削除
+
+> [!IMPORTANT]
+> ブートローダーをデフォルトから切り替える場合は、既存の設定を削除する必要がある。
+> 削除しないとデフォルトのブートローダーを使用し続けることがある。
+
+```bash
+sudo rm -rf /boot/EFI/systemd
+```
+
+```bash
+sudo rm -rf /boot/EFI/Linux
+```
+
 ## ビルド
 
 1. ディレクトリを移動する
@@ -57,7 +72,7 @@ git add hardware/hardware-configuration.nix
 3. ビルドする
 
 ```bash
-sudo nixos-rebuild boot --flake .
+sudo NIXOS_INSTALL_BOOTLOADER=1 nixos-rebuild boot --flake .#
 ```
 
 4. シェル環境から抜ける
